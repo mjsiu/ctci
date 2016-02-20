@@ -1,58 +1,63 @@
-function Node (data) {
+var Node = function (value) {
   this.next = null;
-  this.data = data;
+  this.value = value;
 }
 
-function LinkedList () {
-  this.list = [];
+var LinkedList = function () {
   this.head = null;
 }
 
-LinkedList.prototype.add = function (node) {
-  if (this.list.length === 0) {
-    this.list.push(node);
+LinkedList.prototype.add = function (nodeValue) {
+  var node = new Node(nodeValue),
+      currentNode = this.head;
+
+  if (!currentNode) {
     this.head = node;
-  } else {
-    this.list[this.list.length-1].next = node;
-    this.list.push(node);
+    return;
   }
+
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
+
+  currentNode.next = node;
 }
 
-LinkedList.prototype.delete = function (node) {
-  if (node === this.head) {
-    this.list.splice(0,1);
-    this.head = this.list[0];
-    return this.list;
-  }
+LinkedList.prototype.remove = function(val){
+    var current = this.head;
 
-  for (var i = 1; i < this.list.length; i++) {
-    if (this.list[i] === node) {
-      if (this.list[i+1] === undefined) {
-        this.list[i+1].next = null;
-        this.list.splice(i, 1);
-        return this.list;
-      } else {
-        this.list[i-1].next = this.list[i+1];
-        this.list.splice(i, 1);
-        return this.list;
+    if(current.value == val){
+       this.head = current.next;
+    }
+    else{
+      var previous = current;
+
+      while(current.next){
+        if(current.value == val){
+          previous.next = current.next;
+          break;
+        }
+        previous = current;
+        current = current.next;
+      }
+      if(current.value == val){
+        previous.next == null;
       }
     }
   }
-}
 
-var LinkedList = new LinkedList(),
-    aNode = new Node('a'),
-    bNode = new Node('b'),
-    cNode = new Node('c');
-    dNode = new Node('d');
-
-LinkedList.add(aNode);
-LinkedList.add(bNode);
-LinkedList.add(cNode);
-LinkedList.add(dNode);
-
-console.log(LinkedList);
-console.log("---");
-console.log(LinkedList.delete(aNode));
-console.log("---");
-console.log(LinkedList.delete(cNode));
+// 
+// var LinkedList = new LinkedList();
+//
+// LinkedList.add("a");
+// LinkedList.add("b");
+// LinkedList.add("c");
+// LinkedList.add("d");
+//
+// console.log(LinkedList.head);
+// console.log("---");
+// LinkedList.remove("a");
+// console.log(LinkedList);
+// console.log("---");
+// LinkedList.remove("b");
+// console.log(LinkedList);
