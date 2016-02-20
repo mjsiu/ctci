@@ -48,9 +48,9 @@ Stack.prototype.isEmpty = function () {
 // Stack.push("b");
 // Stack.push("c");
 // Stack.pop();
-//
 // console.log(Stack.peek());
 // console.log(Stack.isEmpty());
+
 // Stack.pop();
 // Stack.pop();
 // console.log("---");
