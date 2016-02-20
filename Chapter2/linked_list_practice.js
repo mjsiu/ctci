@@ -40,19 +40,29 @@ LinkedList.prototype.delete = function (node) {
   }
 }
 
-// var LinkedList = new LinkedList(),
-//     aNode = new Node('a'),
-//     bNode = new Node('b'),
-//     cNode = new Node('c');
-//     dNode = new Node('d');
-//
-// LinkedList.add(aNode);
-// LinkedList.add(bNode);
-// LinkedList.add(cNode);
-// LinkedList.add(dNode);
-//
-// console.log(LinkedList);
-// console.log("---");
-// console.log(LinkedList.delete(aNode));
-// console.log("---");
-// console.log(LinkedList.delete(cNode));
+// 2.1
+
+function removeDups (LinkedList) {
+  var seenLinks = {};
+
+  for (var i = 0; i < LinkedList.list.length; i++) {
+    var link = LinkedList.list[i];
+    if (!seenLinks[link]) {
+      seenLinks[link] = true;
+      LinkedList.delete(link);
+    }
+  }
+  return LinkedList.list;
+}
+
+var LinkedList = new LinkedList(),
+    aNode = new Node('a'),
+    bNode = new Node('b'),
+    cNode = new Node('c');
+    dNode = new Node('d');
+
+// 2.2
+function kthToLast(LinkedList, k) {
+  var listLength = 0;
+
+}
