@@ -46,7 +46,7 @@ LinkedList.prototype.remove = function(val){
     }
   }
 
-// 
+//
 // var LinkedList = new LinkedList();
 //
 // LinkedList.add("a");
