@@ -1,11 +1,11 @@
 var Node = function (value) {
   this.next = null;
   this.value = value;
-}
+};
 
 var LinkedList = function () {
   this.head = null;
-}
+};
 
 LinkedList.prototype.add = function (nodeValue) {
   var node = new Node(nodeValue),
@@ -21,7 +21,7 @@ LinkedList.prototype.add = function (nodeValue) {
   }
 
   currentNode.next = node;
-}
+};
 
 LinkedList.prototype.remove = function(val){
     var current = this.head;
@@ -44,9 +44,9 @@ LinkedList.prototype.remove = function(val){
         previous.next == null;
       }
     }
-  }
+};
 
-// 
+//
 // var LinkedList = new LinkedList();
 //
 // LinkedList.add("a");

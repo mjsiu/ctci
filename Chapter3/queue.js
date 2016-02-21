@@ -1,12 +1,12 @@
 var Node = function (value) {
   this.value = value;
   this.next = null;
-}
+};
 
 var Queue = function () {
   this.first = null;
   this.count = 0;
-}
+};
 
 Queue.prototype.unshift = function (value) {
   var newNode = new Node(value),
@@ -22,7 +22,7 @@ Queue.prototype.unshift = function (value) {
         current.next = newNode;
         this.count += 1;
       }
-}
+};
 
 Queue.prototype.shift = function () {
     var first = this.first,
@@ -31,15 +31,15 @@ Queue.prototype.shift = function () {
         this.first = next;
         this.count -= 1;
         return this.first;
-}
+};
 
 Queue.prototype.peek = function () {
   return this.first.value;
-}
+};
 
 Queue.prototype.isEmpty = function () {
   return this.count === 0;
-}
+};
 
 // var Queue = new Queue();
 //
